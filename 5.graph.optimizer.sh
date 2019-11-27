@@ -2,8 +2,7 @@
 
 source 0.env.sh
 
-BAG_NAME=2019-11-19_18-23-18
-
+# 1. run graph optimizer
 docker run \
   -it \
   --rm \
@@ -17,5 +16,6 @@ docker run \
   --name graph_optimizer \
   duckietown/cslam-graphoptimizer:daffy-amd64
 
+# 2. move trajectories to the right location
 mkdir -p ${DATA_DIR}/trajectories/${BAG_NAME}
 mv ${DATA_DIR}/autobot*.yaml ${DATA_DIR}/trajectories/${BAG_NAME}/
